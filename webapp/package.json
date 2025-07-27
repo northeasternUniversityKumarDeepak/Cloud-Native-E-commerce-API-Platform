@@ -1,0 +1,61 @@
+{
+  "name": "cloud-ecommerce-api",
+  "version": "1.0.0",
+  "description": "Cloud-Native E-commerce API Platform with Node.js and AWS",
+  "main": "app.js",
+  "author": "Deepak Kumar",
+  "license": "MIT",
+  "keywords": [
+    "nodejs",
+    "express",
+    "aws",
+    "ecommerce",
+    "api",
+    "mysql",
+    "sequelize",
+    "cloud-native"
+  ],
+  "engines": {
+    "node": ">=16.0.0",
+    "npm": ">=8.0.0"
+  },
+  "dependencies": {
+    "@aws-sdk/client-s3": "^3.279.0",
+    "app-root-path": "^3.1.0",
+    "bcrypt": "^5.1.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "multer": "^1.4.5-lts.1",
+    "mysql2": "^3.0.1",
+    "node-statsd": "^0.1.1",
+    "sequelize": "^6.28.0",
+    "statsd-client": "^0.4.7",
+    "winston": "^3.8.2"
+  },
+  "devDependencies": {
+    "chai": "^4.3.7",
+    "chai-http": "^4.3.0",
+    "mocha": "^10.2.0",
+    "sequelize-cli": "^6.6.0",
+    "supertest": "^6.3.3",
+    "nodemon": "^3.0.0",
+    "eslint": "^8.0.0",
+    "prettier": "^3.0.0"
+  },
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js",
+    "test": "NODE_ENV=test mocha test/**/*.js --timeout 10000",
+    "test:watch": "npm test -- --watch",
+    "test:coverage": "nyc npm test",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "db:migrate": "sequelize-cli db:migrate",
+    "db:migrate:undo": "sequelize-cli db:migrate:undo",
+    "db:seed": "sequelize-cli db:seed:all",
+    "prepare": "npm run lint && npm run test"
+  }
+}

@@ -1,0 +1,77 @@
+# ===========================================
+# NETWORK CONFIGURATION
+# ===========================================
+
+# VPC CIDR block for the entire network
+vpc_cidr_block = "10.0.0.0/16"
+
+# Public subnet CIDR blocks (for load balancers, NAT gateways)
+public_subnets_cidr = [
+  "10.0.1.0/24",  # Public subnet in AZ-a
+  "10.0.2.0/24",  # Public subnet in AZ-b
+  "10.0.3.0/24"   # Public subnet in AZ-c
+]
+
+# Private subnet CIDR blocks (for application servers, databases)
+private_subnets_cidr = [
+  "10.0.4.0/24",  # Private subnet in AZ-a
+  "10.0.5.0/24",  # Private subnet in AZ-b
+  "10.0.6.0/24"   # Private subnet in AZ-c
+]
+
+# Default route for internet access
+destination_cidr_block = "0.0.0.0/0"
+
+# ===========================================
+# REGIONAL CONFIGURATION
+# ===========================================
+
+# AWS region for deployment
+region = "us-east-1"
+
+# AWS CLI profile to use
+profile = "default"
+
+# ===========================================
+# EC2 CONFIGURATION
+# ===========================================
+
+# Custom AMI ID (replace with your AMI built using Packer)
+ami = "ami-0abcdef1234567890"
+
+# EC2 instance type
+instance_type = "t3.micro"
+
+# Root volume configuration
+instance_vol_type = "gp3"
+instance_vol_size = 20
+
+# EC2 Key Pair name for SSH access
+key_name = "your-ec2-key-pair"
+
+# Application port
+port = 3000
+
+# ===========================================
+# DATABASE CONFIGURATION
+# ===========================================
+
+# RDS instance identifier
+db_identifier = "webapp-production-db"
+
+# Database credentials
+database_username = "admin"
+database_password = "SecurePassword123!"  # Use a strong password
+
+# Database name
+database_name = "webapp_production"
+
+# ===========================================
+# DOMAIN CONFIGURATION
+# ===========================================
+
+# Your root domain name
+root_domain = "yourdomain.com"
+
+# AWS Account ID (for AMI sharing)
+aws_account_number = "123456789012"
